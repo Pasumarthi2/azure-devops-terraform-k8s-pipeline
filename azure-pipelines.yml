@@ -14,9 +14,9 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 - task: DownloadSecureFile@1
+  name: publickey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
   inputs:
     secureFile: 'azure_rsa.pub'
-    socketTimeout: '5'
 - task: TerraformCLI@0
   inputs:
     command: 'init'
